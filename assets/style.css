@@ -216,7 +216,7 @@ button:hover {
 
 
 
-#formulaire {
+.formulaire {
     background: #4c4c85;
     margin-top: 15px;
     display: flex;
@@ -225,8 +225,8 @@ button:hover {
 }
 
 
-form {
-    width: 40%;
+ form {
+    width: 30%;
     gap: 10px;
     padding: 2rem;
     background: #949497;
@@ -234,7 +234,7 @@ form {
     box-shadow: 0 4px 6px #333b;
     margin-bottom: 15px;
     margin-top: 30px;
-}
+} 
 
 
 label {
@@ -273,6 +273,14 @@ button:hover {
     background-color: #0056b3;
 }
 
+.panier{
+    background: #4c4c85;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
 
 /* Responsive */
 @media (max-width: 768px) {

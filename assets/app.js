@@ -111,13 +111,13 @@ searchInput.addEventListener("input", function () {
 
 const button = document.getElementById('btn');
 const button1 = document.getElementById('btn1');
-const form = document.querySelector('#formulaire');
+const panier = document.querySelector('.panier');
 const descriptionV = document.querySelector('#description');
 const titreV = document.querySelector('#titre');
 const imageV = document.querySelector('#image');
 
 button.addEventListener('click', function() {
-    form.reset();
+    panier.reset();
   });
   
 
@@ -125,7 +125,7 @@ function addCard(){
     // e.preventDefault();
 const card = document.createElement('div');
 card.className = 'card';
-form.appendChild(card);
+panier.appendChild(card);
 const image = document.createElement('img');
 image.src = imageV.value ;
 card.appendChild(image);
