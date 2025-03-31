@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet affichage des objets par bar de Recherche</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- <a href="#signup">Sign Up</a> -->
+    </nav>
+    <h1>
+      Welcome to Jungle <br />
+      for Gamble
+    </h1>
+    <header class="hero" id="hero">
+      <h2>Bienvenu dans mon store</h2>
+      <button id="Contact">Se connecter</button>
+    </header>
+
+    <main>
+      <section class="cards">
+        <div class="container">
+          <div class="research-bar">
+            <h2>Nos produits</h2>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Rechercher un produit"
+            />
+           
+              <button id="research">Rechercher</button>
+            
+          </div>
+          <div id="products-container"></div>
+        </div>
+      </section>
+
+
+      <section id="formulaire">
+        <h2>Ajouter les produit</h2>
+        <form >
+            <label for="image">image</label>
+            <input type="url" id="image"  required/>
+    
+            <label for="titre">Produit</label>
+            <input type="text" id="titre" required />
+    
+            <label for="description">prix</label>
+            <input type="text" id="description" required />
+    
+            <button id="btn1" type="submit">Ajouter</button>
+            <button id="btn" type="reset">Reset</button>
+            </form>
+    </section>
+     
+      
+      <!-- <section>
+        <div class="formulaire">
+          <h2 id="contact">Ajouter un produit</h2>
+          <form id="product-form" action="#" method="get">
+            <div id="form-container">
+              <div class="product-entry">
+                <label>Produit</label>
+                <input type="text" name="product" class="search-input" required />
+      
+                <label>Description</label>
+                <input type="text" name="description" class="description" required />
+      
+                <label>Prix</label>
+                <input type="text" name="titre" class="titre" required />
+      
+                <label>Image</label>
+                <input type="file" name="image" class="image-input" accept="image/*" required />
+              </div>
+            </div>
+            <button type="button" id="add-product">Ajouter un autre produit</button>
+            <button type="button" id="create-card">Ajouter</button>
+          </form>
+        </div>
+      </section>
+      
+     
+      <section id="cards-container"></section>
+       -->
+      
+
+    </main>
+  </body>
+  <script src="assets/app.js"></script>
+</html>
