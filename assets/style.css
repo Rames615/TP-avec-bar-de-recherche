@@ -278,6 +278,7 @@ button:hover {
     margin-top: 15px;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
     

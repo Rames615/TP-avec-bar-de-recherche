@@ -151,49 +151,6 @@ button1.addEventListener('click', function(e){
 });
 
 
-// document.getElementById("create-card").addEventListener("click", function () {
-//     const formEntries = document.querySelectorAll(".product-entry");
-
-//     formEntries.forEach(entry => {
-//         const productName = entry.querySelector(".search-input").value;
-//         const productDescription = entry.querySelector(".description").value;
-//         const productPrice = entry.querySelector(".titre").value;
-//         const imageInput = entry.querySelector(".image-input").files[0];
-
-//         if (productName && productDescription && productPrice && imageInput) {
-//             const reader = new FileReader();
-
-//             reader.onload = function (e) {
-//                 // Create a new card
-//                 const card = document.createElement("div");
-//                 card.classList.add("card");
-//                 card.innerHTML = `
-//                     <img src="${e.target.result}" alt="${productName}" class="product-image">
-//                     <h3>${productName}</h3>
-//                     <p>${productDescription}</p>
-//                     <p><strong>Prix:</strong> ${productPrice} €</p>
-//                     <button class="delete-card"> Supprimer</button>
-//                 `;
-
-//                 // Append the card to the container
-//                 document.getElementById("cards-container").appendChild(card);
-
-//                 // Add delete functionality
-//                 card.querySelector(".delete-card").addEventListener("click", function () {
-//                     card.remove();
-//                 });
-
-//                 // Clear form fields
-//                 entry.querySelector(".search-input").value = "";
-//                 entry.querySelector(".description").value = "";
-//                 entry.querySelector(".titre").value = "";
-//                 entry.querySelector(".image-input").value = "";
-//             };
-
-//             reader.readAsDataURL(imageInput); // Convert image to Base64 URL
-//         }
-//     });
-// });
 
 
 
