@@ -1,24 +1,24 @@
 const products =[
     {
-        image : "https://picsum.photos/200/200?random=1",
+        image : "https://picsum.photos/200/300?random=1",
         type : "fruit",
         nom : "Banane",
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=2",
+        image : "https://picsum.photos/200/300?random=2",
         type : "fruit",
         nom : "Pomme",
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=3",
+        image : "https://picsum.photos/200/300?random=3",
         type : "fruit",
         nom : "Ananas",
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=4",
+        image : "https://picsum.photos/200/300?random=4",
         type : "Legumes",
         nom : "Harricot vert",
         prix : "3,99€"
@@ -30,19 +30,19 @@ const products =[
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=6",
+        image : "https://picsum.photos/200/300?random=6",
         type : "Legumes",
         nom : "potato",
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=7",
+        image : "https://picsum.photos/200/300?random=7",
         type : "Legumes",
-        nom : "Pomme de terre",
+        nom : "Poire",
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=8",
+        image : "https://picsum.photos/200/300?random=8",
         type : "Legumes",
         nom : "Tomate",
         prix : "2,99€"
@@ -58,7 +58,7 @@ const searchButton = document.getElementById("research");
 
 // Function to display products
 function displayProducts(filteredProducts) {
-    productsContainer.innerHTML = ""; // Clear previous results
+    productsContainer.innerHTML = ""; 
 
     if (filteredProducts.length === 0) {
         productsContainer.innerHTML = "<p>Aucun produit trouvé.</p>";
@@ -108,48 +108,69 @@ searchInput.addEventListener("input", function () {
 
 // Formulaire pour ajouter des produits
 
+// const form = document.querySelector('form');
+// const button = document.getElementById('btn');
+// const button1 = document.getElementById('btn1');
+// const panier = document.querySelector('.panier');
+// const nom = document.getElementById('nom');
+// const detail = document.querySelector('#description');
+// const title = document.querySelector('#titre');
+// const imageV = document.querySelector('#image');
 
-const button = document.getElementById('btn');
-const button1 = document.getElementById('btn1');
-const panier = document.querySelector('.panier');
-const descriptionV = document.querySelector('#description');
-const titreV = document.querySelector('#titre');
-const imageV = document.querySelector('#image');
 
-button.addEventListener('click', function() {
-    panier.reset();
-  });
+
+// button.addEventListener('click', function() {
+//     panier.reset();
+//   });
   
 
-function addCard(){
-    // e.preventDefault();
-const card = document.createElement('div');
-card.className = 'card';
-panier.appendChild(card);
-const image = document.createElement('img');
-image.src = imageV.value ;
-card.appendChild(image);
+// function addCard(){
+//     // e.preventDefault();
+// const card = document.createElement('div');
+// card.className = 'card';
+// panier.appendChild(card);
+// const image = document.createElement('img');
+// image.src = imageV.value ;
+// card.appendChild(image);
 
-const titre = document.createElement('h3');
-titre.textContent = titreV.value;
-card.appendChild(titre);
+// const titre = document.createElement('h3');
+// titre.textContent = title.value;
+// card.appendChild(titre);
 
-const paragraph = document.createElement('p');
- paragraph.textContent = descriptionV.value;
- card.appendChild(paragraph);
+// const paragraph = document.createElement('p');
+//  paragraph.textContent = detail.value;
+//  card.appendChild(paragraph);
 
-}
+// }
 
-// button1.addEventListener('click',addCard);
-button1.addEventListener('click', function(e){
+// button1.addEventListener('click', function(e){
+//     e.preventDefault();
+//     if (imageV.value && title.value && detail.value){
+//         addCard();
+//     } else {
+//         alert('Remplisez vous le champs !');
+//     }
+// });
+
+/////////////////////////////////////////////////////////////////
+
+
+// Ajouter un nouveau produit via le formulaire
+productForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (imageV.value && titreV.value && descriptionV.value){
-        addCard();
-    } else {
-        alert('Remplisez vous le champs !');
-    }
-});
 
+    const newProduct = {
+        nom: document.getElementById("product-name").value,
+        type: document.getElementById("product-type").value,
+        prix: document.getElementById("product-price").value + "€",
+        image: document.getElementById("product-image").value,
+    };
+
+    products.push(newProduct);
+    displayProducts(products);
+
+    productForm.reset();
+});
 
 
 
