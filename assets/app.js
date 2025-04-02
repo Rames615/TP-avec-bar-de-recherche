@@ -50,7 +50,7 @@ const products =[
 
 ];
 
-
+// Ces trois constantes récupèrent des éléments HTML via leur id
 
 const productsContainer = document.getElementById("products-container");
 const searchInput = document.getElementById("search-input");
@@ -58,13 +58,14 @@ const searchButton = document.getElementById("research");
 
 // Function to display products
 function displayProducts(filteredProducts) {
-    productsContainer.innerHTML = ""; // Clear previous results
+    productsContainer.innerHTML = ""; // On vide d'abord le contenu (innerHTML = "") pour éviter d'ajouter des doublons.
 
     if (filteredProducts.length === 0) {
         productsContainer.innerHTML = "<p>Aucun produit trouvé.</p>";
         return;
     }
-
+    
+// On boucle sur la liste des produits filtrés.
     filteredProducts.forEach(product => {
         const cardElement = document.createElement("div");
         cardElement.classList.add("card");
@@ -78,13 +79,14 @@ function displayProducts(filteredProducts) {
     });
 }
 
-// Initial display of all products
+// On affiche les produits filtrés
 displayProducts(products);
 
-// Search functionality
+// Search functionality via bouton
 searchButton.addEventListener("click", function () {
     let searchQuery = searchInput.value.toLowerCase();
 
+// On récupère la valeur de l'input et on la met en minuscules (toLowerCase()) pour une recherche insensible à la casse.
     let filteredProducts = products.filter(product => 
         product.nom.toLowerCase().includes(searchQuery)
     );
@@ -92,43 +94,43 @@ searchButton.addEventListener("click", function () {
     displayProducts(filteredProducts);
 });
 
-// Live search as the user types
-searchInput.addEventListener("input", function () {
-    let searchQuery = searchInput.value.toLowerCase();
+// // On écoute chaque frappe de l'utilisateur.
+// searchInput.addEventListener("input", function () {
+//     let searchQuery = searchInput.value.toLowerCase();
 
-    let filteredProducts = products.filter(product => 
-        product.nom.toLowerCase().includes(searchQuery)
-    );
+//     let filteredProducts = products.filter(product => 
+//         product.nom.toLowerCase().includes(searchQuery)
+//     );
 
-    displayProducts(filteredProducts);
-});
+//     displayProducts(filteredProducts);
+// });
 
 
 
 
 // Formulaire pour ajouter des produits
 
-
+const form = document.querySelector('form');
 const button = document.getElementById('btn');
 const button1 = document.getElementById('btn1');
 const panier = document.querySelector('.panier');
+const name = document.querySelector('#nom');
 const descriptionV = document.querySelector('#description');
 const titreV = document.querySelector('#titre');
-const imageV = document.querySelector('#image');
 
-button.addEventListener('click', function() {
-    panier.reset();
-  });
-  
 
-function addCard(){
-    // e.preventDefault();
+
+function addCard(){ 
 const card = document.createElement('div');
 card.className = 'card';
 panier.appendChild(card);
+
 const image = document.createElement('img');
-image.src = imageV.value ;
+image.src = "https://picsum.photos/250/250?random=${Math.random()}";
 card.appendChild(image);
+const title = document.createElement('h3');
+title.textContent = name.value ;
+card.appendChild(title);
 
 const titre = document.createElement('h3');
 titre.textContent = titreV.value;
@@ -140,60 +142,19 @@ const paragraph = document.createElement('p');
 
 }
 
-// button1.addEventListener('click',addCard);
 button1.addEventListener('click', function(e){
     e.preventDefault();
-    if (imageV.value && titreV.value && descriptionV.value){
+    if (name.value && titreV.value && descriptionV.value){
         addCard();
     } else {
         alert('Remplisez vous le champs !');
     }
 });
 
-
-// document.getElementById("create-card").addEventListener("click", function () {
-//     const formEntries = document.querySelectorAll(".product-entry");
-
-//     formEntries.forEach(entry => {
-//         const productName = entry.querySelector(".search-input").value;
-//         const productDescription = entry.querySelector(".description").value;
-//         const productPrice = entry.querySelector(".titre").value;
-//         const imageInput = entry.querySelector(".image-input").files[0];
-
-//         if (productName && productDescription && productPrice && imageInput) {
-//             const reader = new FileReader();
-
-//             reader.onload = function (e) {
-//                 // Create a new card
-//                 const card = document.createElement("div");
-//                 card.classList.add("card");
-//                 card.innerHTML = `
-//                     <img src="${e.target.result}" alt="${productName}" class="product-image">
-//                     <h3>${productName}</h3>
-//                     <p>${productDescription}</p>
-//                     <p><strong>Prix:</strong> ${productPrice} €</p>
-//                     <button class="delete-card"> Supprimer</button>
-//                 `;
-
-//                 // Append the card to the container
-//                 document.getElementById("cards-container").appendChild(card);
-
-//                 // Add delete functionality
-//                 card.querySelector(".delete-card").addEventListener("click", function () {
-//                     card.remove();
-//                 });
-
-//                 // Clear form fields
-//                 entry.querySelector(".search-input").value = "";
-//                 entry.querySelector(".description").value = "";
-//                 entry.querySelector(".titre").value = "";
-//                 entry.querySelector(".image-input").value = "";
-//             };
-
-//             reader.readAsDataURL(imageInput); // Convert image to Base64 URL
-//         }
-//     });
-// });
+button.addEventListener('click', function() {
+    panier.reset();
+  });
+  
 
 
 
@@ -217,45 +178,4 @@ button1.addEventListener('click', function(e){
 
 
 
-
-
-
-
-
-// const buttonAjouter = document.querySelector('#ajouter')
-// const form = document.querySelector('.formulaire');
-// const produit = document.querySelector('#search-input');
-// const descriptionV = document.querySelector('#description');
-// const prix = document.querySelector('#titre');
-
-
-// function addCard(){
-//     // e.preventDefault();
-// const card = document.createElement('div');
-// card.className = 'card';
-// form.appendChild(card);
-// const produit1 = document.createElement('card');
-// produit1.src = produit.value ;
-// card.appendChild(produit1);
-
-// const price = document.createElement('h3');
-// price.textContent = prix.value;
-// card.appendChild(price);
-
-// const paragraph = document.createElement('p');
-//  paragraph.textContent = descriptionV.value;
-//  card.appendChild(paragraph);
-
-// }
-
-// // button1.addEventListener('click',addCard);
-// buttonAjouter.addEventListener('click', function(e){
-
-// e.preventDefault();
-//     if (produit.value ){
-//         addCard();
-//     } else {
-//         alert('Aucune carte à supprimer !');
-//     }
-// });
 
