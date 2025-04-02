@@ -1,24 +1,24 @@
 const products =[
     {
-        image : "https://picsum.photos/200/200?random=1",
+        image : "https://picsum.photos/200/300?random=1",
         type : "fruit",
         nom : "Banane",
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=2",
+        image : "https://picsum.photos/200/300?random=2",
         type : "fruit",
         nom : "Pomme",
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=3",
+        image : "https://picsum.photos/200/300?random=3",
         type : "fruit",
         nom : "Ananas",
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=4",
+        image : "https://picsum.photos/200/300?random=4",
         type : "Legumes",
         nom : "Harricot vert",
         prix : "3,99€"
@@ -30,19 +30,19 @@ const products =[
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=6",
+        image : "https://picsum.photos/200/300?random=6",
         type : "Legumes",
         nom : "potato",
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=7",
+        image : "https://picsum.photos/200/300?random=7",
         type : "Legumes",
-        nom : "Pomme de terre",
+        nom : "Poire",
         prix : "2,99€"
     },
     {
-        image : "https://picsum.photos/200/200?random=8",
+        image : "https://picsum.photos/200/300?random=8",
         type : "Legumes",
         nom : "Tomate",
         prix : "2,99€"
@@ -59,6 +59,7 @@ const searchButton = document.getElementById("research");
 // Function to display products
 function displayProducts(filteredProducts) {
     productsContainer.innerHTML = ""; // On vide d'abord le contenu (innerHTML = "") pour éviter d'ajouter des doublons.
+    productsContainer.innerHTML = ""; 
 
     if (filteredProducts.length === 0) {
         productsContainer.innerHTML = "<p>Aucun produit trouvé.</p>";
@@ -118,33 +119,30 @@ const name = document.querySelector('#nom');
 const descriptionV = document.querySelector('#description');
 const titreV = document.querySelector('#titre');
 
+ 
 
-
-function addCard(){ 
+function addCard(){
+    // e.preventDefault();
 const card = document.createElement('div');
 card.className = 'card';
 panier.appendChild(card);
-
 const image = document.createElement('img');
-image.src = "https://picsum.photos/250/250?random=${Math.random()}";
+image.src = imageV.value ;
 card.appendChild(image);
-const title = document.createElement('h3');
-title.textContent = name.value ;
-card.appendChild(title);
 
 const titre = document.createElement('h3');
-titre.textContent = titreV.value;
+titre.textContent = title.value;
 card.appendChild(titre);
 
 const paragraph = document.createElement('p');
- paragraph.textContent = descriptionV.value;
+ paragraph.textContent = detail.value;
  card.appendChild(paragraph);
 
 }
 
 button1.addEventListener('click', function(e){
     e.preventDefault();
-    if (name.value && titreV.value && descriptionV.value){
+    if (imageV.value && title.value && detail.value){
         addCard();
     } else {
         alert('Remplisez vous le champs !');
@@ -154,28 +152,4 @@ button1.addEventListener('click', function(e){
 button.addEventListener('click', function() {
     panier.reset();
   });
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+////////////////////////////////////////////////////////////////
