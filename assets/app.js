@@ -3,49 +3,49 @@ const products =[
         image : "https://picsum.photos/200/300?random=1",
         type : "fruit",
         nom : "Banane",
-        prix : "2,99€"
+        prix : "2,99"
     },
     {
         image : "https://picsum.photos/200/300?random=2",
         type : "fruit",
         nom : "Pomme",
-        prix : "2,99€"
+        prix : "2,99"
     },
     {
         image : "https://picsum.photos/200/300?random=3",
         type : "fruit",
         nom : "Ananas",
-        prix : "2,99€"
+        prix : "2,99"
     },
     {
         image : "https://picsum.photos/200/300?random=4",
         type : "Legumes",
         nom : "Harricot vert",
-        prix : "3,99€"
+        prix : "3,99"
     },
     {
         image : "https://picsum.photos/200/200?random=5",
         type : "Legumes",
         nom : "Aubergine",
-        prix : "2,99€"
+        prix : "2,99"
     },
     {
         image : "https://picsum.photos/200/300?random=6",
         type : "Legumes",
         nom : "potato",
-        prix : "2,99€"
+        prix : "2,99"
     },
     {
         image : "https://picsum.photos/200/300?random=7",
         type : "Legumes",
         nom : "Poire",
-        prix : "2,99€"
+        prix : "2,99"
     },
     {
         image : "https://picsum.photos/200/300?random=8",
         type : "Legumes",
         nom : "Tomate",
-        prix : "2,99€"
+        prix : "2,99"
     },
 
 ];
@@ -71,10 +71,10 @@ function displayProducts(filteredProducts) {
         const cardElement = document.createElement("div");
         cardElement.classList.add("card");
         cardElement.innerHTML = `
-            <img src="${product.image}" alt="${product.nom}" width="100">
+            <img src="${product.image}" alt="${product.nom}" >
             <h2>${product.type}</h2>
-            <p><strong>${product.nom}</strong></p>
-            <p>${product.prix}</p>
+            <p>${product.nom}</p>
+            <p><strong>${product.prix} €</strong></p>
         `;
         productsContainer.appendChild(cardElement);
     });
@@ -115,41 +115,58 @@ const form = document.querySelector('form');
 const button = document.getElementById('btn');
 const button1 = document.getElementById('btn1');
 const panier = document.querySelector('.panier');
-const name = document.querySelector('#nom');
-const descriptionV = document.querySelector('#description');
-const titreV = document.querySelector('#titre');
+const nom = document.querySelector('#nom');
+const title = document.querySelector('#titre');
+const price = document.querySelector('#prix');
 
- 
-
-function addCard(){
-    // e.preventDefault();
-const card = document.createElement('div');
-card.className = 'card';
-panier.appendChild(card);
-const image = document.createElement('img');
-image.src = imageV.value ;
-card.appendChild(image);
-
-const titre = document.createElement('h3');
-titre.textContent = title.value;
-card.appendChild(titre);
-
-const paragraph = document.createElement('p');
- paragraph.textContent = detail.value;
- card.appendChild(paragraph);
-
-}
-
-button1.addEventListener('click', function(e){
+form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (imageV.value && title.value && detail.value){
-        addCard();
-    } else {
-        alert('Remplisez vous le champs !');
-    }
-});
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+    <img src="https://picsum.photos/200/300?random=${Math.random()}">
+    <h3> ${nom.value}</h3>
+    <p>${title.value}</p>
+    <p>${price.value}</p>
+    `;
+    productsContainer.appendChild(card);
+    form.reset();
+}
+);
 
-button.addEventListener('click', function() {
-    panier.reset();
-  });
 ////////////////////////////////////////////////////////////////
+
+// function addCard(){
+    
+// const card = document.createElement('div');
+// card.className = 'card';
+// productsContainer.appendChild(card);
+// const image = document.createElement('img');
+// image.src = "https://picsum.photos/200/200?random=${Math.random()"
+// card.appendChild(image);
+// const name = document.createElement('h3');
+// name.textContent = nom.value ;
+// card.appendChild(name);
+
+// const titre = document.createElement('h3');
+// titre.textContent = title.value;
+// card.appendChild(titre);
+
+// const description = document.createElement('p');
+// description.textContent = price.value;
+//  card.appendChild(description);
+
+// }
+
+// button1.addEventListener('click', function(e){
+//     e.preventDefault();
+//     if (nom.value && title.value && price.value){
+//         addCard();
+//     } else {
+//         alert('Remplisez vous le champs !');
+//     }
+// });
+
+// button.addEventListener('click', function() {
+//     panier.reset();
+//   });
